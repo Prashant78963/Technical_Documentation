@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <title>Technical Documentation</title>
+</head>
+<body>
+    <div id="hero">
+        <h2><a href="https://ubuntu.com/" target="_blank">ubuntu<sup></sup><i class="fab fa-ubuntu"></i></a>
+        </h2>
+        <p>Linux command line for beginners</p>
+    </div>
+    <div class="container">
+        <nav id="navbar">
+            <header>Topics</header>
+            <ul>
+                <li><a class="nav-link" href="#Overview">Overview</a></li>
+                <li><a class="nav-link" href="#A_brief_history_lesson">A brief history lesson</a></li>
+                <li><a class="nav-link" href="#Opening_a_terminal">Opening a terminal</a></li>
+                <li><a class="nav-link" href="#Creating_folders_and_files">Creating folders and files</a></li>
+                <li><a class="nav-link" href="#Moving_and_manipulating_files">Moving and manipulating files</a></li>
+                <li><a class="nav-link" href="#Hidden_files">Hidden files</a></li>
+                <li><a class="nav-link" href="#Conclusion">Conclusion</a></li>
+            </ul>
+        </nav>
+        <main id="main-doc">
+            <section class="main-section" id="Overview">
+                <header>Overview</header>
+                <div class="content">
+                    <P>The Linux command line is a text interface to your computer. Often referred to as the shell,
+                        terminal,
+                        console, prompt or various other names, it can give the appearance of being complex and
+                        confusing to
+                        use. Yet the ability to copy and paste commands from a website, combined with the power and
+                        flexibility
+                        the command line offers, means that using it may be essential when trying to follow instructions
+                        online,
+                        including many on this very website!</P>
+
+                    <P>This tutorial will teach you a little of the history of the command line, then walk you through
+                        some
+                        practical excercises to become familiar with a few basic commands and concepts. We’ll assume no
+                        prior
+                        knowledge, but by the end we hope you’ll feel a bit more comfortable the next time you’re faced
+                        with
+                        some instructions that begin “Open a terminal”.</P>
+
+                    <h3>What you’ll learn</h3>
+                    <ul>
+                        <li>A little history of the command line</li>
+                        <li>How to access the command line from your own computer</li>
+                        <li>How to perform some basic file manipulation</li>
+                        <li>A few other useful commands</li>
+                        <li>How to chain commands together to make more powerful tools</li>
+                        <li>The best way to use administrator powers</li>
+                    </ul>
+                    <h3>What you’ll need</h3>
+                    <ul>
+                        <li>A computer running Ubuntu or some other version of Linux</li>
+                    </ul>
+                    <p>Every Linux system includes a command line of one sort or another. This tutorial includes some
+                        specfic
+                        steps for Ubuntu 18.04 but most of the content should work regardless of your Linux
+                        distribution.
+                    </p>
+                </div>
+            </section>
+            <section class="main-section" id="A_brief_history_lesson">
+                <header>A brief history lesson</header>
+                <div class="content">
+                    <p>During the formative years of the computer industry, one of the early operating systems was
+                        called
+                        Unix. It was designed to run as a multi-user system on mainframe computers, with users
+                        connecting to
+                        it remotely via individual <b>terminals</b>. These terminals were pretty basic by
+                        modern standards: just a keyboard and screen, with no power to run programs locally. Instead
+                        they
+                        would just send keystrokes to the server and display any data they received on the screen. There
+                        was
+                        no mouse, no fancy graphics, not even any choice of colour. Everything was sent as text, and
+                        received as text. Obviously, therefore, any programs that ran on the mainframe had to produce
+                        text
+                        as an output and accept text as an input.</p>
+                    <p>Compared with graphics, text is very light on resources. Even on machines from the 1970s, running
+                        hundreds of terminals across glacially slow network connections (by today’s standards), users
+                        were
+                        still able to interact with programs quickly and efficiently. The commands were also kept very
+                        terse
+                        to reduce the number of keystrokes needed, speeding up people’s use of the terminal even more.
+                        This
+                        speed and efficiency is one reason why this text interface is still widely used today.</p>
+                    <p>When logged into a Unix mainframe via a terminal users still had to manage the sort of file
+                        management tasks that you might now perform with a mouse and a couple of windows. Whether
+                        creating
+                        files, renaming them, putting them into subdirectories or moving them around on disk, users in
+                        the
+                        70s could do everything entirely with a textual interface.</p>
+                    <p>Each of these tasks required its own program or command: one to change directories
+                        (<span>cd</span>),
+                        another to list their contents (<span>ls</span>), a third to rename or move files
+                        (<span>mv</span>),
+                        and so on. In order to coordinate the execution of each of these programs, the user would
+                        connect to
+                        one single master program that could then be used to launch any of the others. By wrapping the
+                        user’s commands this “shell” program, as it was known, could provide common capabilities to any
+                        of
+                        them, such as the ability to pass data from one command straight into another, or to use special
+                        wildcard characters to work with lots of similarly named files at once. Users could even write
+                        simple code (called “shell scripts”) which could be used to automate long series of shell
+                        commands
+                        in order to make complex tasks easier. The original Unix shell program was just called
+                        <span>sh</span>, but it has been extended and superceded over the years, so on a modern Linux
+                        system
+                        you’re most likely to be using a shell called <span>bash</span>. Don’t worry too much about
+                        which
+                        shell you have, all the content in this tutorial will work on just about all of them.</p>
+                    <p>Linux is a sort-of-descendent of Unix. The core part of Linux is designed to behave similarly to
+                        a
+                        Unix system, such that most of the old shells and other text-based programs run on it quite
+                        happily.
+                        In theory you could even hook up one of those old 1970s terminals to a modern Linux box, and
+                        access
+                        the shell through that. But these days it’s far more common to use a software terminal: that
+                        same
+                        old Unix-style text interface, but running in a window alongside your graphical programs. Let’s
+                        see
+                        how you can do that yourself!</p>
+                </div>
+            </section>
+            <section class="main-section" id="Opening_a_terminal">
+                <header>Opening a terminal</header>
+                <div class="content">
+                    <p>
+                        On a Ubuntu 18.04 system you can find a launcher for the terminal by clicking on the Activities
+                        item
+                        at the top left of the screen, then typing the first few letters of “terminal”, “command”,
+                        “prompt”
+                        or “shell”. Yes, the developers have set up the launcher with all the most common synonyms, so
+                        you
+                        should have no problems finding it.
+                    </p>
+                    <img
+                        src="https://ubuntucommunity.s3.dualstack.us-east-2.amazonaws.com/original/2X/8/85e591c2bdc94b4159329bf19cc1d6740f233b84.png">
+                    <p>Other versions of Linux, or other flavours of Ubuntu, will usually have a terminal launcher
+                        located
+                        in the same place as your other application launchers. It might be hidden away in a submenu or
+                        you
+                        might have to search for it from within your launcher, but it’s likely to be there somewhere.
+                    </p>
+                    <p>If you can’t find a launcher, or if you just want a faster way to bring up the terminal, most
+                        Linux
+                        systems use the same default keyboard shortcut to start it: <strong>Ctrl-Alt-T</strong>.</p>
+                    <p>However you launch your terminal, you should end up with a rather dull looking window with an odd
+                        bit
+                        of text at the top, much like the image below. Depending on your Linux system the colours may
+                        not be
+                        the same, and the text will likely say something different, but the general layout of a window
+                        with
+                        a large (mostly empty) text area should be similar.</p>
+                    <img
+                        src="https://ubuntucommunity.s3.dualstack.us-east-2.amazonaws.com/original/2X/b/ba76cbf3dc8dc2cc94d26dd61c7aad3cedcd5102.png">
+                    <p>Let’s run our first command. Cick the mouse into the window to make sure that’s where your
+                        keystrokes
+                        will go, then type the following command, <b>all in lower case</b>, before
+                        pressing the <strong>Enter</strong> or <strong>Return</strong> key to run it.</p>
+                    <div class="code-block"><code>pwd</code></div>
+                    <p>You should see a directory path printed out (probably something like
+                        <span>/home/YOUR_USERNAME</span>), then another copy of that odd bit of text.</p>
+                    <img
+                        src="https://ubuntucommunity.s3.dualstack.us-east-2.amazonaws.com/original/2X/5/53b0efee0efbd0e2b219c69dde456af300ecb512.png">
+                    <p>There are a couple of basics to understand here, before we get into the detail of what the
+                        command
+                        actually did. First is that when you type a command it appears on the same line as the odd text.
+                        That text is there to tell you the computer is ready to accept a command, it’s the computer’s
+                        way of
+                        prompting you. In fact it’s usually referred to as the <b>prompt</b>, and you
+                        might sometimes see instructions that say “bring up a prompt”, “open a command prompt”, “at the
+                        bash
+                        prompt” or similar. They’re all just different ways of asking you to open a terminal to get to a
+                        shell.</p>
+                    <p>On the subject of synonyms, another way of looking at the prompt is to say that there’s a line in
+                        the
+                        terminal into which you type commands. A command line, if you will. Again, if you see mention of
+                        “command line”, including in the title of this very tutorial, it’s just another way of talking
+                        about
+                        a shell running in a terminal.</p>
+                    <p>The second thing to understand is that when you run a command any output it produces will usually
+                        be
+                        printed directly in the terminal, then you’ll be shown another prompt once it’s finished. Some
+                        commands can output a lot of text, others will operate silently and won’t output anything at
+                        all.
+                        Don’t be alarmed if you run a command and another prompt immediately appears, as that usually
+                        means
+                        the command succeeded. If you think back to the slow network connections of our 1970s terminals,
+                        those early programmers decided that if everything went okay they may as well save a few
+                        precious
+                        bytes of data transfer by not saying anything at all.</p>
+                    <div class="note">
+                        <h4><i class="fas fa-exclamation-triangle"></i>The importance of case</h4>
+                        <p>Be extra careful with case when typing in the command line. Typing <span>PWD</span> instead
+                            of
+                            <span>pwd</span> will produce an error, but sometimes the wrong case can result in a command
+                            appearing to run, but not doing what you expected. We’ll look at case a little more on the
+                            next
+                            page but, for now, just make sure to type all the following lines in exactly the case that’s
+                            shown.</p>
+                    </div>
+                    <p>From the root directory, the following command will move you into the “home” directory (which is
+                        an
+                        immediate subdirectory of “/”):</p>
+                    <div class="code-block"><code>cd home<br>pwd</code></div>
+                    <p>To go up to the parent directory, in this case back to “/”, use the special syntax of two dots
+                        (<span>. .</span>) when changing directory (note the space between <span>cd</span> and
+                        <span>. .</span>, unlike in DOS you can’t just type <span>cd..</span> as one command):</p>
+                    <div class="code-block"><code>cd..<br>pwd</code></div>
+                    <p>Typing <span>cd</span> on its own is a quick shortcut to get back to your home directory:</p>
+                    <div class="code-block"><code>cd<br>pwd</code></div>
+                    <p>You can also use <span>. .</span> more than once if you have to move up through multiple levels of
+                        parent directories:</p>
+                    <div class="code-block"><code>cd../.. <br>pwd</code></div>
+                    <p>Notice that in the previous example we described a route to take through the directories. The
+                        path we
+                        used means “starting from the working directory, move to the parent / from that new location
+                        move to
+                        the parent again”. So if we wanted to go straight from our home directory to the “etc” directory
+                        (which is directly inside the root of the file system), we could use this approach:</p>
+                    <div class="code-block"><code>cd<br>pwd<br><br>cd../../etc<br>pwd</code></div>
+                </div>
+            </section>
+            <section class="main-section" id="Creating_folders_and_files">
+                <header>Creating folders and files</header>
+                <div class="content">
+                    <p>In this section we’re going to create some real files to work with. To avoid accidentally
+                        trampling
+                        over any of your real files, we’re going to start by creating a new directory, well away from
+                        your
+                        home folder, which will serve as a safer environment in which to experiment:</p>
+                    <div class="code-block"><code>mkdir/tmp/tutorial<br>cd/tmp/tutorial</code></div>
+                    <p>Notice the use of an absolute path, to make sure that we create the
+                        <b>tutorial</b>directory inside <b>/tmp</b>. Without the
+                        forward slash at the start the mkdir command would try to find a <b>tmp</b>
+                        directory inside the current working directory, then try to create a
+                        <b>tutorial</b> directory inside that. If it couldn’t find a
+                        <b>tmp</b>directory the command would fail.</p>
+                    <p>In case you hadn’t guessed, <span>mkdir</span> is short for ‘make directory’. Now that we’re
+                        safely
+                        inside our test area (double check with <span>pwd</span> if you’re not certain), let’s create a
+                        few
+                        subdirectories:</p>
+                    <div class="code-block"><code>mkdir dir1 dir2 dir3</code></div>
+                    <p>There’s something a little different about that command. So far we’ve only seen commands that
+                        work on
+                        their own (<span>cd</span>, <span>pwd</span>span>) or that have a single item afterwards
+                        (<span>cd
+                            /</span>, <span>cd ~/Desktop</span>). But this time we’ve added three things after the
+                        <span>mkdir</span> command. Those things are referred to as <b>parameters</b> or
+                        <b>arguments</b>, and different commands can accept different numbers of
+                        arguments. The <span>mkdir</span> command expects at least one argument, whereas the
+                        <span>cd</span>
+                        command can work with zero or one, but no more. See what happens when you try to pass the wrong
+                        number of parameters to a command:</p>
+                    <div class="code-block"><code>mkdir<br>cd/etc ~/Desktop</code></div>
+                    <p>Back to our new directories. The command above will have created three new subdirectories inside
+                        our
+                        folder. Let’s take a look at them with the <span>ls</span> (list) command:</p>
+                    <p>If you’ve followed the last few commands, your terminal should be looking something like this:
+                    </p>
+                    <img
+                        src="https://ubuntucommunity.s3.dualstack.us-east-2.amazonaws.com/original/2X/f/f5787298cfda955e0e223f461e962d7dc8c376cc.png">
+                    <p>Notice that <span>mkdir</span> created all the folders in one directory. It
+                        <b>didn’t</b> create <b>dir3</b> inside
+                        <b>dir2</b> inside <b>dir1</b>, or any other nested structure.
+                        But sometimes it’s handy to be able to do exactly that, and <span>mkdir</span> does have a way:
+                    </p>
+                    <div class="code-block"><code>mkdir -p dir4/dir5/dir6<br>ls</code></div>
+                    <p>This time you’ll see that only dir4 has been added to the list, because dir5 is inside it, and
+                        dir6
+                        is inside that. Later we’ll install a useful tool to visualise the structure, but you’ve already
+                        got
+                        enough knowledge to confirm it:</p>
+                    <div class="code-block"><code>cd dir4<br>ls<br>cd dir5<br>ls<br>cd../..</code></div>
+                    <p>The “-p” that we used is called an <b>option</b> or a
+                        <b>switch</b> (in this case it means “create the parent directories, too”).
+                        Options are used to modify the way in which a command operates, allowing a single command to
+                        behave
+                        in a variety of different ways.</p>
+                    <h3>Creating files using redirection</h3>
+                    <p>Our demonstration folder is starting to look rather full of directories, but is somewhat lacking
+                        in
+                        files. Let’s remedy that by redirecting the output from a command so that, instead of being
+                        printed
+                        to the screen, it ends up in a new file. First, remind yourself what the <span>ls</span> command
+                        is
+                        currently showing:</p>
+                    <div class="code-block"><code>ls</code></div>
+                    <p>Suppose we wanted to capture the output of that command as a text file that we can look at or
+                        manipulate further. All we need to do is to add the greater-than character (">") to the end of
+                        our
+                        command line, followed by the name of the file to write to:</p>
+                    <div class="code-block"><code>ls > output.txt</code></div>
+                    <p>This time there’s nothing printed to the screen, because the output is being redirected to our
+                        file
+                        instead. If you just run <span>ls</span> on its own you should see that the
+                        <b>output.txt</b> file has been created. We can use the <span>cat</span> command
+                        to look at its content:</p>
+                    <div class="code-block"><code>cat output.txt</code></div>
+                    <p>Okay, so it’s not <b>exactly</b> what was displayed on the screen previously, but
+                        it contains all the same data, and it’s in a more useful format for further processing. Let’s
+                        look
+                        at another command, <span>echo</span>:</p>
+                    <div class="code-block"><code>echo "This is a test"</code></div>
+                    <p>Yes, <span>echo</span> just prints its arguments back out again (hence the name). But combine it
+                        with
+                        a redirect, and you’ve got a way to easily create small test files:</p>
+                    <div class="code-block">
+                        <code>echo "This is a test" > test_1.txt<br>echo "This is a second test" > test_2.txt<br>echo "This is a third test" > test_3.txt<br>ls</code>
+                    </div>
+                    <p>You should <span>cat</span> each of these files to theck their contents. But <span>cat</span> is
+                        more
+                        than just a file viewer - its name comes from ‘concatenate’, meaning “to link together”. If you
+                        pass
+                        more than one filename to <span>cat</span> it will output each of them, one after the other, as
+                        a
+                        single block of text:</p>
+                    <div class="code-block"><code>cat test_1.txt test_2.txt test_3.txt</code></div>
+                </div>
+            </section>
+            <section class="main-section" id="Moving_and_manipulating_files">
+                <header>Moving and manipulating files</header>
+                <div class="content">
+                    <p>Now that we’ve got a few files, let’s look at the sort of day-to-day tasks you might need to
+                        perform
+                        on them. In practice you’ll still most likely use a graphical program when you want to move,
+                        rename
+                        or delete one or two files, but knowing how to do this using the command line can be useful for
+                        bulk
+                        changes, or when the files are spread amongst different folders. Plus, you’ll learn a few more
+                        things about the command line along the way.</p>
+                    <p>Let’s begin by putting our <b>combined.txt</b> file into our <b>dir1</b> directory, using the
+                        <span>mv</span> (move) command:
+                    </p>
+                    <div class="code-block"><code>mv combined.txt dir1</code></div>
+                    <p>You can confirm that the job has been done by using <span>ls</span> to see that it’s missing from
+                        the
+                        working
+                        directory, then <span>cd</span> dir1 to change into <b>dir1</b>, <span>ls</span> to see that
+                        it’s in
+                        there, then <span>cd . .</span> to move the
+                        working directory back again. Or you could save a lot of typing by passing a path directly to
+                        the
+                        <span>ls</span>
+                        command to get straight to the confirmation you’re looking for:</p>
+                    <div class="code-block"><code>ls dir1</code></div>
+
+                    <p>Now suppose it turns out that file shouldn’t be in <b>dir1</b> after all. Let’s move it back to
+                        the
+                        working
+                        directory. We could <span>cd</span> into <b>dir1</b> then use <span>mv combined.txt . .</span>
+                        to
+                        say “move <b>combined.txt</b> into the
+                        parent directory”. But we can use another path shortcut to avoid changing directory at all. In
+                        the
+                        same way that two dots (<span>. .</span>) represents the parent directory, so a single dot
+                        (<span>.</span>) can be used to
+                        represent the current working directory. Because we know there’s only one file in <b>dir1</b> we
+                        can
+                        also
+                        just use “*” to match any filename in that directory, saving ourselves a few more keystrokes.
+                        Our
+                        command to move the file back into the working directory therefore becomes this (note the space
+                        before the dot, there are <b>two</b> parameters being passed to <span>mv</span>):</p>
+                    <div class="code-block"><code>mv dir1*.</code></div>
+                    <p>The <span>mv</span> command also lets us move more than one file at a time. If you pass more than
+                        two
+                        arguments,
+                        the last one is taken to be the destination directory and the others are considered to be files
+                        (or
+                        directories) to move. Let’s use a single command to move <b>combined.txt</b>, all our
+                        <b>test_n.txt</b> files and
+                        <b>dir3</b> into <b>dir2</b>. There’s a bit more going on here, but if you look at each argument
+                        at
+                        a time you
+                        should be able to work out what’s happening:</p>
+                    <div class="code-block"><code>
+                    mv combined.txt test_* dir3 dir2<br>ls<br>ls dir2</code></div>
+                    <p>With <b>combined.txt</b> now moved into <b>dir2</b>, what happens if we decide it’s in the wrong
+                        place again?
+                        Instead of <b>dir2</b> it should have been put in <b>dir6</b>, which is the one that’s inside
+                        <b>dir5</b>, which is in
+                        <b>dir4</b>. With what we now know about paths, that’s no problem either:</p>
+                    <div class="code-block"><code>mv dir2/combined.txt dir4/dir5/dir6<br>
+                    ls dir2<br>
+                    ls dir4/dir5/dir6</code></div>
+                    <p>Notice how our <span>mv</span> command let us move the file from one directory into another, even
+                        though our
+                        working directory is something completely different. This is a powerful property of the command
+                        line: no matter where in the file system you are, it’s still possible to operate on files and
+                        folders in totally different locations.</p>
+                    <p>Since we seem to be using (and moving) that file a lot, perhaps we should keep a copy of it in
+                        our
+                        working directory. Much as the <span>mv</span> command moves files, so the <span>cp</span>
+                        command
+                        copies them (again, note
+                        the space before the dot):</p>
+                    <div class="code-block"><code>cp dir4/dir5/dir6/combined.txt .<br>
+                    ls dir4/dir5/dir6<br>
+                    ls</code></div>
+                    <p>Great! Now let’s create another copy of the file, in our working directory but with a different
+                        name.
+                        We can use the <span>cp</span> command again, but instead of giving it a directory path as the
+                        last
+                        argument,
+                        we’ll give it a new file name instead:</p>
+                    <div class="code-block"><code>cp combined.txt backup_combined.txt<br>
+                    ls</code></div>
+                    <h3>Deleting files and folders</h3>
+                    <div class="note">
+                        <h4><i class="fas fa-exclamation-triangle"></i>Warning</h4>
+                        <p>In this next section we’re going to start deleting files and folders. To make absolutely
+                            certain
+                            that you don’t accidentally delete anything in your home folder, use the <span>pwd</span>
+                            command to
+                            double-check that you’re still in the <b>/tmp/tutorial</b> directory before proceeding.</p>
+                    </div>
+                    <p>Now we know how to move, copy and rename files and directories. Given that these are just test
+                        files,
+                        however, perhaps we don’t really need three different copies of <b>combined.txt</b> after all.
+                        Let’s
+                        tidy
+                        up a bit, using the <span>rm</span> (remove) command:</p>
+                    <div class="code-block"><code>rm dir4/dir5/dir6/combined.txt combined_backup.txt</code></div>
+                    <p>Perhaps we should remove some of those excess directories as well:</p>
+                    <div class="code-block"><code>rm folder_*</code></div>
+                    <img
+                        src="https://ubuntucommunity.s3.dualstack.us-east-2.amazonaws.com/original/2X/7/78c42837d43e6483cfff3c1b20d6d27ae89e198d.png">
+                    <p>What happened there? Well, it turns out that <span>rm</span> does have one little safety net.
+                        Sure,
+                        you can use it
+                        to delete every single file in a directory with a single command, accidentally wiping out
+                        thousands
+                        of files in an instant, with no means to recover them. But it won’t let you delete a directory.
+                        I
+                        <b>suppose</b> that does help prevent you accidentally deleting thousands <b>more</b> files, but
+                        it
+                        does seem a
+                        little petty for such a destructive command to balk at removing an empty directory. Luckily
+                        there’s
+                        an <span>rmdir</span> (remove directory) command that will do the job for us instead:</p>
+                    <div class="code-block"><code>rmdir folder_*</code></div>
+                    <img
+                        src="https://ubuntucommunity.s3.dualstack.us-east-2.amazonaws.com/original/2X/c/cd41753a5ac535a71fa2cd8d146ba354e920935d.png">
+                    <p>A more common approach, when you’re <b>really</b>, really, really sure you want to delete a whole
+                        directory
+                        and anything within it, is to tell <span>rm</span> to work recursively by using the
+                        <span>-r</span>
+                        switch, in which case it
+                        will happily delete folders as well as files. With that in mind, here’s the command to get rid
+                        of
+                        that pesky <b>folder_6</b> and the subdirectory within it:</p>
+                    <div class="code-block"><code>rm -r folder_6<br>
+                    ls</code></div>
+                    <div class="note">
+                        <h4><i class="fas fa-exclamation-triangle"></i>Important Warning</h4>
+                        <p>Unlike graphical interfaces, <span>rm</span> doesn’t move files to a folder called “trash” or
+                            similar. Instead
+                            it deletes them totally, utterly and irrevocably. You need to be ultra careful with the
+                            parameters you use with <span>rm</span> to make sure you’re only deleting the file(s) you
+                            intend
+                            to. You
+                            should take particular care when using wildcards, as it’s easy to accidentally delete more
+                            files
+                            than you intended. An errant space character in your command can change it completely:
+                            <span>rm
+                                t*</span>
+                            means “delete all the files starting with <b>t</b>”, whereas <span>rm t*</span> means
+                            "delete
+                            the file <b>t</b> as well as
+                            any file whose name consists of zero or more characters, which would be everything in the
+                            directory! If you’re at all uncertain use the <span>-i</span> (interactive) option to
+                            <span>rm</span>, which will prompt
+                            you to confirm the deletion of each file; enter <strong>Y</strong> to delete it,
+                            <strong>N</strong> to keep it, and press <strong>Ctrl-C</strong>
+                            to stop the operation entirely.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="main-section" id="Hidden_files">
+                <header>Hidden files</header>
+                <div class="content">
+                    <p>Before we conclude this tutorial it’s worth mentioning <b>hidden files</b> (and
+                        folders). These are commonly used on Linux systems to store settings and configuration data, and
+                        are
+                        typically hidden simply so that they don’t clutter the view of your own files. There’s nothing
+                        special about a hidden file or folder, other than it’s name: simply starting a name with a dot
+                        (".")
+                        is enough to make it disappear.</p>
+                    <div class="code-block">
+                        <code>cd/tmp/tutorial<br>ls<br>mv combined.txt .combined.txt<br>ls</code>
+                    </div>
+                    <p>You can still work with the hidden file by making sure you include the dot when you specify its
+                        file
+                        name:</p>
+                    <div class="code-block"><code>cat .combined.txt<br>
+                    mkdir .hidden<br>
+                    mv .combined.txt .hidden<br>
+                    less .hidden/.combined.txt</code></div>
+                    <p>If you run <span>ls</span> you’ll see that the <span>.</span>hidden directory is, as you might
+                        expect, hidden. You can still list its contents using <span>ls .hidden</span>, but as it only
+                        contains a single file which is, itself, hidden you won’t get much output. But you can use the
+                        <span>-a</span> (show all) switch to <span>ls</span> to make it show everything in a directory,
+                        including the hidden files and folders:</p>
+                    <div class="code-block"><code>ls<br>
+                    ls -a<br>
+                    ls .hidden<br>
+                    ls -a .hidden</code></div>
+                    <p>Notice that the shortcuts we used earlier, <span>.</span> and <span>. .</span>, also appear as
+                        though
+                        they’re real directories.</p>
+                    <p>As for our recently installed <span>tree</span> command, that works in a similar way (except
+                        without
+                        an appearance by <span>.</span> and <span>. .</span>):</p>
+                    <div class="code-block"><code>tree<br>
+                    tree -a</code></div>
+                    <h3>Cleaning up</h3>
+                    <p>We’ve reached the end of this tutorial, and you should be back in your home directory now (use
+                        <span>pwd</span> to check, and <span>cd</span> to go there if you’re not). It’s only polite to
+                        leave
+                        your computer in the same state that we found it in, so as a final step, let’s remove the
+                        experimental area that we were using earlier, then double-check that it’s actually gone:</p>
+                    <div class="code-block"><code>rm -r/tmp/tutorial<br>
+                    ls/tmp</code></div>
+                    <p>As a last step, let’s close the terminal. You can just close the window, but it’s better practice
+                        to
+                        log out of the shell. You can either use the <span>logout</span> command, or the
+                        <strong>Ctrl-D</strong> keyboard shortcut. If you plan to use the terminal a lot, memorising
+                        <strong>Ctrl-Alt-T</strong> to launch the terminal and <strong>Ctrl-D</strong> to close it will
+                        soon
+                        make it feel like a handy assistant that you can call on instantly, and dismiss just as easily.
+                    </p>
+
+                </div>
+            </section>
+            <section class="main-section" id="Conclusion">
+                <header>Conclusion</header>
+                <div class="content">
+                    <p>This tutorial has only been a brief introduction to the Linux command line. We’ve looked at a few
+                        common commands for moving around the file system and manipulating files, but no tutorial could
+                        hope
+                        to provide a comprehensive guide to every available command. What’s more important is that
+                        you’ve
+                        learnt the key aspects of working with the shell. You’ve been introduced to some widely used
+                        terminology (and synonyms) that you might come across online, and have gained an insight into
+                        some
+                        of the key parts of a typical shell command. You’ve learnt about absolute and relative paths,
+                        arguments, options, man pages, sudo and root, hidden files and much more.</p>
+                    <p>With these key concepts you should be able to make more sense of any command line instructions
+                        you
+                        come across. Even if you don’t understand every single command, you should at least have an idea
+                        of
+                        where one command stops and the next begins. You should more easily be able to tell what files
+                        they’re manipulating, or what other switches and parameters are being used. With reference to
+                        the
+                        man pages you might even be able to glean exactly what the command is doing, or at least get a
+                        general idea.</p>
+                    <p>There’s little we’ve covered here that is likely to make you abandon your graphical file manager
+                        in
+                        favour of a prompt, but file manipulation wasn’t really the main goal. If, however, you’re
+                        intrigued
+                        by the ability to affect files in disparate parts of your hard drive with just a few keypresses,
+                        there’s still a lot more for you to learn.</p>
+                    <h3>Further reading</h3>
+                    <p>There are many online tutorials and commercially published books about the command line, but if
+                        you
+                        do want to go deeper into the subject a good starting point might be the following book:</p>
+                    <ul>
+                        <li><a href="http://linuxcommand.org/tlcl.php">The Linux Command Line</a> by William Shotts</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+
+</html>

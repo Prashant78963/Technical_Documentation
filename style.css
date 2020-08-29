@@ -1,0 +1,182 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    font-size: 18px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 95%;
+}
+
+#hero {
+    margin-top: 20px;
+    width: 100%;
+    color: white;
+    display: block;
+}
+
+#hero a {
+    color: white;
+}
+
+#hero h2 {
+    background-color: #E95420;
+    font-weight: 500;
+    padding-bottom: 10px;
+    padding-left: 20px;
+    font-size: 30px;
+}
+
+#hero p {
+    background-color: #77216F;
+    text-align: left;
+    font-size: 22px;
+    padding: 10px 0 10px 20px;
+}
+
+#hero i {
+    transform: scale(0.5);
+    color: white;
+}
+
+#hero sup {
+    margin-left: -5px;
+}
+
+nav header {
+    font-size: 26px;
+    padding-top: 20px;
+}
+
+nav {
+    font-size: 20px;
+    width: 90%;
+    margin: 0 auto;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.3);
+    padding-bottom: 10px;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav ul li {
+    padding-top: 10px;
+}
+
+nav a {
+    color: inherit;
+}
+
+.nav-link {
+    transition: 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #E95420;
+}
+
+main {
+    width: 90%;
+    margin: 0 auto;
+}
+
+main header {
+    font-size: 32px;
+    padding-top: 30px;
+    padding-bottom: 15px;
+}
+
+main p {
+    padding-bottom: 15px;
+}
+
+.content {
+    line-height: 1.6;
+}
+
+main ul {
+    padding: 20px 40px;
+}
+
+span {
+    background-color: #F2F1F0;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px;
+    letter-spacing: 1px;
+}
+
+img {
+    width: 100%;
+}
+
+.code-block {
+    width: 100%;
+    border: 2px solid #CECAC5;
+    background-color: #F6F6F5;
+    padding: 10px 0 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 20px 0 35px 0;
+    word-spacing: 10px;
+    letter-spacing: 2px;
+}
+
+.note {
+    border-top: 4px solid rgb(243, 123, 12);
+    box-shadow: 0 3px 3px #CECAC5;
+    padding-right: 15px;
+    margin: 10px 0 30px 0;
+}
+
+.note i {
+    padding: 15px 15px 0 15px;
+    color: rgb(243, 123, 12);
+}
+
+.note p {
+    margin-left: 50px;
+    padding-top: 3px;
+}
+
+img {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+b {
+    font-style: italic;
+}
+
+h3 {
+    font-weight: normal;
+}
+
+@media (min-width:950px) {
+    .container {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        margin-top: 50px;
+    }
+    nav {
+        width: 50%;
+        border-bottom: none;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 15px;
+    }
+    main {
+        padding-left: 100px;
+        padding-top: 30px;
+        border-left: 2px solid #D6D3CF;
+    }
+    #hero p,h2{
+        text-align: center;
+    }
