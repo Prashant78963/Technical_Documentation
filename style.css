@@ -24,12 +24,12 @@ body {
     color: white;
 }
 
-#hero h2 {
+.logo {
     background-color: #E95420;
     font-weight: 500;
     padding-bottom: 10px;
     padding-left: 20px;
-    font-size: 30px;
+    font-size: 24px;
 }
 
 #hero p {
@@ -39,12 +39,12 @@ body {
     padding: 10px 0 10px 20px;
 }
 
-#hero i {
+.logo i {
     transform: scale(0.5);
     color: white;
 }
 
-#hero sup {
+.logo sup {
     margin-left: -5px;
 }
 
@@ -163,7 +163,7 @@ h3 {
         display: flex;
         justify-content: space-around;
         align-items: flex-start;
-        margin-top: 50px;
+        margin-top: 40px;
     }
     nav {
         width: 50%;
@@ -177,6 +177,25 @@ h3 {
         padding-top: 30px;
         border-left: 2px solid #D6D3CF;
     }
-    #hero p,h2{
-        text-align: center;
+    #hero {
+        width: 100%;
+        height: 100px;
+        background-color: #333333;
+        display: flex;
+        margin-top: 0;
     }
+    .logo {
+        width: 280px;
+        height: 100%;
+        padding-top: 10px;
+        padding-right: 10px;
+        font-size: 30px;
+        justify-content: space-evenly;
+    }
+    #hero p {
+        width: 100%;
+        align-self: flex-end;
+        text-align: center;
+        padding: 11.8px;
+    }
+}
